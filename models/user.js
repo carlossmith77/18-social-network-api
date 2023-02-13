@@ -2,18 +2,21 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
   {
-    first: String,
-    last: String,
-    age: Number,
-  },
+    username: String,
+    email: String,
+    thoughts: Array,
+    friends:Array
+  }
+  /*,
   {
     toJSON: {
       virtuals: true,
     },
     id: false,
   }
+  */
 );
-
+/*
 userSchema
   .virtual('fullName')
   .get(function () {
@@ -24,7 +27,7 @@ userSchema
     const last = v.split(' ')[1];
     this.set({ first, last });
   });
-
+*/
 const User = model('user', userSchema);
 
 module.exports = User;
